@@ -349,6 +349,29 @@
 
   </div>
 
+
+  <div class="container">
+    <h1>Category Form</h1>
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input [(ngModel)]="item.id" type="text" class="form-control" id="id" required>
+      </div>
+      <div class="form-group">
+        <label for="title">question</label>
+        <input [(ngModel)]="item.question" type="text" class="form-control" id="question" required>
+      </div>
+      <div class="form-group">
+        <label for="author">answer</label>
+        <input [(ngModel)]="item.answer" type="text" class="form-control" id="answer" required>
+      </div>
+      <div class="form-group">
+        <label for="author">sno</label>
+        <input [(ngModel)]="item.sno" type="text" class="form-control" id="sno" required>
+      </div>
+      <button (click)="addCategory(item)" class="btn btn-success">Add Category</button>
+</div>
+
+
   <ul>
     <li *ngFor="let item of data">
       ID: {{item.id}}
@@ -357,6 +380,8 @@
       sno: {{item.sno}}
     </li>
   </ul>
+
+
 
 </div>
 <router-outlet></router-outlet>
