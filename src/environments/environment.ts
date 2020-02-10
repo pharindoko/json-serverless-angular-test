@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: "https://[api-url]/dev/api/categories/"
+  url: "https://[url]/dev/api/categories/",
+  apitoken: "[token]"
 };
 
 /*
