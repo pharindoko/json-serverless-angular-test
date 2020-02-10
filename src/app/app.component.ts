@@ -22,16 +22,16 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {
     console.log(environment.url);
     this.header = new HttpHeaders();
-    this.header = this.header.append('x-api-key',environment.apitoken);
-    this.header = this.header.append('Content-Type', 'application/json');
-
-    
+    if (environment.apitoken) {
+      this.header = this.header.append("x-api-key", environment.apitoken);
+    }
+    this.header = this.header.append("Content-Type", "application/json");
   }
 
   async ngOnInit() {
-
-
-    this.data = await this.http.get(environment.url, {headers: this.header}).toPromise();
+    this.data = await this.http
+      .get(environment.url, { headers: this.header })
+      .toPromise();
     this.item = {
       question: "test-question",
       id: "test-id",
@@ -42,10 +42,14 @@ export class AppComponent implements OnInit {
 
   async addCategory(item: Category) {
     console.log(JSON.stringify(item));
-    this.data = await this.http.post(environment.url, item,{headers: this.header}).toPromise();
+    this.data = await this.http
+      .post(environment.url, item, { headers: this.header })
+      .toPromise();
   }
 
   async updateCategory(item: Category) {
-    this.data = await this.http.put(environment.url, item, {headers: this.header}).toPromise();
+    this.data = await this.http
+      .put(environment.url, item, { headers: this.header })
+      .toPromise();
   }
 }
