@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
     this.header = new HttpHeaders();
     if (environment.apitoken) {
       this.header = this.header.append("x-api-key", environment.apitoken);
+      this.header = this.header.append('Accept', 'application/json');
+
     }
     this.header = this.header.append("Content-Type", "application/json");
   }
